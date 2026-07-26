@@ -1,0 +1,8 @@
+﻿<DefaultWindow xmlns="https://spacestation14.io"
+               Title="Stopwatch">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
+        <Label Name="CurrentTime" Text="00:00"/>
+        <Button Name="ToggleTimer" Text="Start" />
+        <Button Name="ResetTimer" Text="Reset"></Button>
+    </BoxContainer>
+</DefaultWindow>

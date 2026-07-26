@@ -1,0 +1,53 @@
+﻿- type: entity
+  id: Stopwatch
+  name: Stopwatch screen
+  description: It's a timer for sending timed signals to things, with a built-in screen.
+  components:
+    - type: StopWatch
+      canEditLabel: true
+    - type: ScreenVisuals
+      color: FloralWhite
+      textOffset: 0,6
+      timerOffset: 0,6
+      # textLength: 5 This field does not exist. Bug?
+      rows: 1
+    - type: Sprite
+      drawdepth: WallMountedItems
+      sprite: Structures/Wallmounts/signalscreen.rsi
+      state: signalscreen
+      noRot: true
+    - type: Construction
+      graph: Timer
+      node: screen
+      containers:
+        - board
+    - type: ContainerFill
+      containers:
+        board: [ ScreenTimerElectronics ]
+    - type: StationAiWhitelist
+    - type: WallMount
+      arc: 360
+    - type: Appearance
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalGlassBreak
+    - type: Rotatable
+    - type: ActivatableUI
+      key: enum.StopWatchUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.StopWatchUiKey.Key:
+          type: StopWatchBoundUserInterface
+    - type: Electrified
+      enabled: false
+      usesApcPower: true
+    - type: ActivatableUIRequiresPower
+
