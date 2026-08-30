@@ -201,7 +201,7 @@
 - type: cloudEmote
   id: Godo
   animationTime: 3
-  sound: /Audio/_Starlight/Effects/CloudEmotes/pop.ogg
+  sound: /Audio/_Starlight/Effects/CloudEmotes/godo.ogg
   icon:
     sprite: _Starlight/Effects/cloud_emotes.rsi
     state: emote_godo
