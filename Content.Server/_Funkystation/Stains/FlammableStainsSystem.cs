@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Server._Funkystation.Atmos.Events;
+using Content.Server._Starlight.Achievement;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._Funkystation.Stains.Components;
@@ -29,6 +30,7 @@ public sealed partial class FlammableStainsSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = null!;
     [Dependency] private IConfigurationManager _cfg = null!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private AchievementSystem _achievements = default!; //Starlight
 
     // Fraction of a stain's flammable reagents consumed per second while on fire
     private const float StainBurnRatePerSecond = 0.2f;
@@ -140,6 +142,7 @@ public sealed partial class FlammableStainsSystem : EntitySystem
             var reagents = GetFlammableStainsString(wearer, inv);
             _adminLogger.Add(LogType.Flammable, LogImpact.High,
                 $"{ToPrettyString(wearer):entity} was ignited by their flammable stains ({reagents}) reacting to a hotspot (Igniter: {ToPrettyString(igniter):entity}).");
+            _achievements.QueueUnlockAchievement(wearer, "osha");
         }
 
         PruneStains();

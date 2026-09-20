@@ -1,3 +1,4 @@
+using Content.Server._Starlight.Achievement;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -73,6 +74,7 @@ public sealed partial class FaxSystem : EntitySystem
     [Dependency] private SharedTimeSystem _time = default!;
     [Dependency] private PreWrittenDocumentManager _documentManager = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private AchievementSystem _achievements = default!;
     #endregion
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
@@ -378,11 +380,14 @@ public sealed partial class FaxSystem : EntitySystem
             var printout = TryGetFaxablePrintout(component.PaperSlot.Item, component);
             if (printout != null)
             {
+
                 if (component.SendTimeoutRemaining > 0) return;
                 component.PrintingQueue.Enqueue(printout);
                 UpdateUserInterface(uid, component);
                 component.SendTimeoutRemaining += component.SendTimeout;
+
             }
+
             // Starlight-edit
         }
         else
