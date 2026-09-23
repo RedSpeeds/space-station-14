@@ -54,7 +54,7 @@ public sealed partial class SnapShellPieceSystem : EntitySystem
 
         if (part != null) //If it was attached to the body, which it always should, but just in case, we raise the surgery event on it
         {
-            var sev = new SurgeryOrganExtracted(user, part.Value, droppedEntity.Id);
+            var sev = new SurgeryOrganExtracted(user, part.Value, droppedEntity.Id, user);
             _entityManager.EventBus.RaiseLocalEvent(droppedEntity.Id, ref sev);
         }
 
@@ -114,7 +114,7 @@ public sealed partial class RegrowShellEntityEffectSystem : EntityEffectSystem<S
             QueueDel(regrownShell); //If insertion somehow didn't put the shell piece into a valid body part, delete it
         else
         {
-            var sev = new SurgeryOrganImplantationCompleted(entity.Owner, part.Value, regrownShell);
+            var sev = new SurgeryOrganImplantationCompleted(entity.Owner, part.Value, regrownShell, entity.Owner);
             _entityManager.EventBus.RaiseLocalEvent(regrownShell, ref sev);
         }
     }

@@ -732,3 +732,111 @@
     sprite: _Starlight/Interface/Achievements/icons.rsi
     state: heliosMedal
   requirements: []
+
+- type: achievement
+  id: spicy_rock
+  name: achievement-spicy-rock-name
+  description: achievement-spicy-rock-description
+  category: milestones
+  hidden: true
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: personal_liberties
+  name: achievement-personal-liberties-name
+  description: achievement-personal-liberties-description
+  category: milestones
+  hidden: true
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: imperfect_protection
+  name: achievement-imperfect-protection-name
+  description: achievement-imperfect-protection-description
+  category: milestones
+  hidden: false
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: vox_moment
+  name: achievement-vox-moment-name
+  description: achievement-vox-moment-description
+  category: milestones
+  hidden: false
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: changeling_defib
+  name: achievement-changeling-defib-name
+  description: achievement-changeling-defib-description
+  category: milestones
+  hidden: false
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: uplink_balloon
+  name: achievement-uplink-balloon-name
+  description: achievement-uplink-balloon-description
+  category: milestones
+  hidden: true
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: no_room_hell
+  name: achievement-no-room-hell-name
+  description: achievement-no-room-hell-description
+  category: milestones
+  hidden: false
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: broken_media
+  name: achievement-broken-media-name
+  description: achievement-broken-media-description
+  category: milestones
+  hidden: false
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
+
+- type: achievement
+  id: breaking_good
+  name: achievement-breaking-good-name
+  description: achievement-breaking-good-description
+  category: milestones
+  hidden: false
+  showProgress: false
+  icon:
+    sprite: _Starlight/Interface/Achievements/icons.rsi
+    state: heliosMedal
+  requirements: []
