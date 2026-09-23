@@ -47,7 +47,7 @@ public sealed partial class MeleeThrowOnHitSystem : EntitySystem
                             {
                                 Entity<TransformComponent, MetaDataComponent, BodyPartComponent> PartToDelete = (targetpart.Id, targetPartTransform, targetPartMetadata, targetPartBodyPart);
                                 _limbSystem.Amputatate(body, PartToDelete);
-                                _achievements.QueueUnlockAchievement(target, "da_roolz");
+                                _achievements.QueueUnlockAchievement(target, "gorilla_punch");
                             }
                         }
                         Del(basepart);
