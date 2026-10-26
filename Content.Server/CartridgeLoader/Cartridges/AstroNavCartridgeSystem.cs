@@ -1,3 +1,4 @@
+using Content.Server._Starlight.TeleScience;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.GPS.Components;
 using Content.Shared._Starlight.Astronav;
@@ -20,6 +21,7 @@ public sealed partial class AstroNavCartridgeSystem : EntitySystem
     {
         EnsureComp<HandheldGPSComponent>(args.Loader);
         EnsureComp<AstroNavComponent>(args.Loader); // Starlight-edit
+        EnsureComp<TeleportBeaconComponent>(args.Loader);
     }
 
     private void OnCartridgeRemoved(Entity<AstroNavCartridgeComponent> ent, ref CartridgeRemovedEvent args)
@@ -29,6 +31,7 @@ public sealed partial class AstroNavCartridgeSystem : EntitySystem
         {
             RemComp<HandheldGPSComponent>(args.Loader);
             RemComp<AstroNavComponent>(args.Loader); // Starlight-edit
+            RemComp<TeleportBeaconComponent>(args.Loader);
         }
     }
 }

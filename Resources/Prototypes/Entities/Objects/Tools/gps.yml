@@ -12,6 +12,7 @@
   - type: Item
     sprite: Objects/Devices/gps.rsi
   - type: HandheldGPS
+  - type: TeleportBeacon #Starlight-edit
   - type: PhysicalComposition
     materialComposition:
       Steel: 400

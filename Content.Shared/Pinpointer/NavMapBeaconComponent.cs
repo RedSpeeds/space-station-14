@@ -30,4 +30,6 @@ public sealed partial class NavMapBeaconComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
+
+    [DataField, AutoNetworkedField] public bool Teleporter;
 }

@@ -15,12 +15,14 @@ public sealed class NavMapBeaconConfigureBuiMessage : BoundUserInterfaceMessage
 {
     public string? Text;
     public bool Enabled;
+    public bool Teleporter;
     public Color Color;
 
-    public NavMapBeaconConfigureBuiMessage(string? text, bool enabled, Color color)
+    public NavMapBeaconConfigureBuiMessage(string? text, bool enabled, bool teleporter, Color color)
     {
         Text = text;
         Enabled = enabled;
+        Teleporter = teleporter;
         Color = color;
     }
 }

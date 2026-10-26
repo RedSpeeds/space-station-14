@@ -10,6 +10,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Starlight.TeleScience;
 using Content.Shared.Warps;
 
 namespace Content.Server.Pinpointer;
@@ -206,6 +207,16 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
         beacon.Text = args.Text;
         beacon.Color = args.Color;
+        //Starlight start
+        beacon.Teleporter = args.Teleporter;
+        if (beacon.Teleporter)
+        {
+            AddComp<TeleportBeaconComponent>(ent);
+        }
+        else
+        {
+            RemComp<TeleportBeaconComponent>(ent);
+        }
         beacon.Enabled = args.Enabled;
         Dirty(ent, beacon);
 
@@ -364,6 +375,13 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
         comp.Enabled = enabled;
         UpdateBeaconEnabledVisuals((uid, comp));
+    }
+
+    public void SetBeaconTeleport(EntityUid uid, bool teleporter, NavMapBeaconComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp) || comp.Teleporter == teleporter) return;
+
+        comp.Teleporter = teleporter;
     }
 
     /// <summary>

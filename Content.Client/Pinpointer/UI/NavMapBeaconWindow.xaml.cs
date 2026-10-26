@@ -14,12 +14,13 @@ public sealed partial class NavMapBeaconWindow : FancyWindow
     [Dependency] private IConfigurationManager _cfgManager = default!;
     private string? _defaultLabel;
     private bool _defaultEnabled;
+    private bool _defaultTeleporter;
     private Color _defaultColor;
 
     // CCVar.
     private int _maxNameLength;
 
-    public event Action<string?, bool, Color>? OnApplyButtonPressed;
+    public event Action<string?, bool, bool, Color>? OnApplyButtonPressed;
 
     public NavMapBeaconWindow()
     {
@@ -29,6 +30,7 @@ public sealed partial class NavMapBeaconWindow : FancyWindow
         _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
 
         VisibleButton.OnPressed += args => UpdateVisibleButton(args.Button.Pressed);
+        TeleporterButton.OnPressed += args => UpdateTeleporterButton(args.Button.Pressed);
         LabelLineEdit.OnTextChanged += OnTextChanged;
         ColorSelector.OnColorChanged += _ => TryEnableApplyButton();
 
@@ -36,10 +38,18 @@ public sealed partial class NavMapBeaconWindow : FancyWindow
         ApplyButton.OnPressed += OnApplyPressed;
     }
 
+    private void UpdateTeleporterButton(bool value)
+    {
+        VisibleButton.Pressed = value;
+        TeleporterButton.Text = value ? "Enabled" : "Disabled";
+        TryEnableApplyButton();
+    }
+
     public void SetEntity(EntityUid uid, NavMapBeaconComponent navMap)
     {
         _defaultLabel = navMap.Text;
         _defaultEnabled = navMap.Enabled;
+        _defaultTeleporter = navMap.Teleporter;
         _defaultColor = navMap.Color;
 
         UpdateVisibleButton(navMap.Enabled);
@@ -76,8 +86,9 @@ public sealed partial class NavMapBeaconWindow : FancyWindow
     {
         _defaultLabel = LabelLineEdit.Text == string.Empty ? null : LabelLineEdit.Text;
         _defaultEnabled = VisibleButton.Pressed;
+        _defaultTeleporter = TeleporterButton.Pressed;
         _defaultColor = ColorSelector.Color;
-        OnApplyButtonPressed?.Invoke(_defaultLabel, _defaultEnabled, _defaultColor);
+        OnApplyButtonPressed?.Invoke(_defaultLabel, _defaultEnabled, _defaultTeleporter, _defaultColor);
         TryEnableApplyButton();
     }
 }
