@@ -85,3 +85,12 @@
     containers:
       delivery:
         id: RRMailSyndicateSpamLetter
+
+- type: entity
+  parent: BasePackageDeliveryReward
+  id: PackageDeliverySurgeryCleaver
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        delivery:
+          id: ImprovisedSurgeryCleaver

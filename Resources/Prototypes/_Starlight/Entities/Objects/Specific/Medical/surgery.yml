@@ -557,3 +557,20 @@
   - type: Tag
     tags:
       - CyberHandItem
+
+- type: entity
+  name: improvised surgery cleaver
+  id: ImprovisedSurgeryCleaver
+  description: A makeshift surgical tool used for multiple functions. Only a madman would use this.
+  parent: [ButchCleaver, BaseMajorContraband]
+  components:
+    - type: Retractor
+      speed: 1.5
+      successRate: 0.8
+    - type: Scalpel
+      speed: 1.2
+    - type: Hemostat
+      speed: 1.8
+      successRate: 0.6
+    - type: BoneSaw
+      speed: 1.4
